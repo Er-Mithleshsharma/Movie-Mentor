@@ -1,18 +1,26 @@
 import React from 'react'
-import Login from "./Login"
+import Login from './Login'
 import Browse from './Browse'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import App from '../App';
 
-const Body = () => {
+const RoutingConfig = () => {
     const approuter = createBrowserRouter([
         {
              path:"/",
-             element:<Login/>
-        },
-        {
+             element:<App/>,
+             children:[
+              {
+                 path:'/',
+                 element:<Login/>
+              },
+                 {
               path:"/browse",
               element:<Browse/>
+                 },
+             ]
         },
+     
     ])
      
    
@@ -23,4 +31,4 @@ const Body = () => {
   )
 }
 
-export default Body
+export default RoutingConfig
