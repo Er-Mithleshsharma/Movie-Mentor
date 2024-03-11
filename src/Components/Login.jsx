@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header'
 import { checkValidData } from '../utils/validate';
+import {auth} from '../utils/firebase'
+import  {createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 const Login = () => {  
   const email= useRef(null)
   const password= useRef(null)
@@ -12,6 +15,38 @@ const Login = () => {
   const handleButtonClick=()=>{
     const message = checkValidData(email.current.value,password.current.value)
     SetErrorMessage(message);
+   if(message) return;
+   if(!isSignInFrom)
+   {
+    //sign up logic 
+createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    SetErrorMessage(errorMessage +" "+ errorCode);
+  });
+   }
+   else 
+   {
+    // signin
+    console.log("hi")
+    signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    SetErrorMessage(errorMessage)
+  });
+   }
+
   }
 
   return (
