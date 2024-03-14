@@ -41,12 +41,12 @@ const Header = () => {
   
 
   return (
-    <div className=' absolute  bg-gradient-to-b from-black w-full flex justify-between z-50'>
-         <img className='w-56 px-8 py-2 ' src={logo} alt="logo" />
+    <div className=' absolute  bg-gradient-to-b from-black w-full flex justify-between z-50 px-8'>
+         <img className='w-52  py-2 ' src={logo} alt="logo" />
   
-    {user && <div className='flex items-center'>
+    {user && <div className='flex items-center bg-gradient-to-b from black'>
             <img className='h-12 w-12' src={bg} alt="" />
-             <button className='font-bold text-white' onClick={handlesignout}>SignOut</button>
+             <button className='font-bold text-white px-2' onClick={handlesignout}>SignOut</button>
     </div> }
     
      </div>
