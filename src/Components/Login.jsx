@@ -4,6 +4,7 @@ import { checkValidData } from '../utils/validate';
 import {auth} from '../utils/firebase'
 import  {createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import { BG_URL } from '../utils/constants';
 const Login = () => {  
   const email= useRef(null)
   const password= useRef(null)
@@ -53,7 +54,7 @@ createUserWithEmailAndPassword(auth, email.current.value, password.current.value
     <div>
       <Header/>
       <div className=' absolute bg-black'>
-     <img className='opacity-50' src="https://assets.nflxext.com/ffe/siteui/vlv3/93da5c27-be66-427c-8b72-5cb39d275279/94eb5ad7-10d8-4cca-bf45-ac52e0a052c0/IN-en-20240226-popsignuptwoweeks-perspective_alpha_website_large.jpg" 
+     <img className='opacity-50' src={BG_URL} 
      alt="bg-img"
       />
       </div> 
