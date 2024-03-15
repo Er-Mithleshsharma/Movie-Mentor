@@ -35,7 +35,6 @@ createUserWithEmailAndPassword(auth, email.current.value, password.current.value
    else 
    {
     // signin
-    console.log("hi")
     signInWithEmailAndPassword(auth, email.current.value, password.current.value)
   .then((userCredential) => {
     // Signed in 
