@@ -52,12 +52,12 @@ createUserWithEmailAndPassword(auth, email.current.value, password.current.value
   return (
     <div>
       <Header/>
-      <div className=' absolute bg-black'>
-     <img className='opacity-50' src={BG_URL} 
+      <div className=' absolute bg-black w-full'>
+     <img className='opacity-50 h-screen object-cover w-full' src={BG_URL} 
      alt="bg-img"
       />
       </div> 
-      <form onSubmit={(e)=>e.preventDefault()} className='p-12 px-16 absolute w-3/12 bg-black my-36 mx-auto right-8 left-0  text-white bg-opacity-80 '>
+      <form onSubmit={(e)=>e.preventDefault()} className='p-12 px-16 absolute w-full md:w-3/12 bg-black my-36 mx-auto right-8 left-0  text-white bg-opacity-80 '>
         <h1 className='font-bold text-3xl py-4'>{isSignInFrom?"Sign In":"Sign Up"} </h1>
         {!isSignInFrom &&
         <input type="text" placeholder='Name' className=' p-3 my-4 w-full bg-gray-700 rounded-sm' />
