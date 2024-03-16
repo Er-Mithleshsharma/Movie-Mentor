@@ -25,7 +25,7 @@ const Header = () => {
   }
 
   useEffect(()=>{
-   const unsubscribe =   onAuthStateChanged(auth, (user) => {
+   const unsubscribe =  onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
@@ -49,8 +49,8 @@ const Header = () => {
           dispatch(changeLanguage(e.target.value)) 
     }
   return (
-    <div className=' absolute  bg-gradient-to-b from-black w-full flex justify-between z-50 px-8'>
-         <img className='w-52  py-2 ' src={logo} alt="logo" />
+    <div className=' absolute  bg-gradient-to-b from-black w-full flex flex-col md:flex-row justify-between z-50 px-8 '>
+         <img className='w-52  py-2  mx-auto md:mx-0' src={logo} alt="logo" />
   
     {user && <div className='flex items-center bg-gradient-to-b from black'>
              { showGptSearch && <select className='p-2 bg-gray-500 text-white m-2' onChange={handleLanguageChange}>

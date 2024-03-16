@@ -3,6 +3,9 @@ import Login from './Login'
 import Browse from './Browse'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from '../App';
+import MovieDetail from './MovieDetail';
+import Watch from './Watch';
+
 
 const RoutingConfig = () => {
     const approuter = createBrowserRouter([
@@ -18,8 +21,17 @@ const RoutingConfig = () => {
               path:"/browse",
               element:<Browse/>
                  },
+                
              ]
         },
+                 {
+                  path:"/moviedetail/:id",
+                  element:<MovieDetail/>
+                 },
+                 {
+                  path:"/watch/:id",
+                  element:<Watch/>
+                 }
      
     ])
      

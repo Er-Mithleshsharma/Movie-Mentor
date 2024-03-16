@@ -24,13 +24,11 @@ const GptSearchBar = () => {
             messages: [{ role: 'user', content: gptQuery }],
             model: 'gpt-3.5-turbo',
           });
-          console.log(gptResults.choices?.[0]?.message?.content);
           const GptMovies = gptResults.choices?.[0]?.message?.content.split(",");
                 
           //
          const promiceArray =  GptMovies.map((movie)=>searchMovieTMBD(movie))
          const tmdbResults = await Promise.all(promiceArray)
-         console.log(tmdbResults)
          dispatch(addGptMovieResults({movieNames:GptMovies , movieResults:tmdbResults}))
 
     }
