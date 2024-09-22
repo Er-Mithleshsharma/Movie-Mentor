@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.16.0",
     "@reduxjs/toolkit": "^2.2.1",
     "firebase": "^10.8.1",
     "openai": "^4.29.0",

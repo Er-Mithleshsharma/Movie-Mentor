@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import lang from '../utils/languageConstants'
 import { useDispatch, useSelector } from 'react-redux'
-import openai from '../utils/openai'
+import model from '../utils/openai'
 import { API_OPTIONS } from '../utils/constants'
 import { addGptMovieResults } from '../utils/gptSlice'
 
@@ -19,12 +19,13 @@ const GptSearchBar = () => {
 
     const handleGptSearchClick = async()=>{
           // making call to openai 
-          const gptQuery = "Act as a movie Recomendation system and suggest some movies for the  query "+ searchText.current.value +"only give me name of 5 movies , comma separated like the example given ahead. Example Result : Gadar , sholay , don , dhammal , koi mil gaya "
-          const gptResults = await openai.chat.completions.create({
-            messages: [{ role: 'user', content: gptQuery }],
-            model: 'gpt-3.5-turbo',
-          });
-          const GptMovies = gptResults.choices?.[0]?.message?.content.split(",");
+          const gptQuery = "Act as a movie Recomendation system and suggest some movies for the  query "+ searchText.current.value +"only give me name of 5 movies , comma separated like the example given ahead. Example Result : Gadar , sholay , don , dhammal , koi mil gaya , dont add anything else in result only movie names comma saparated "
+          
+  const result = await model.generateContent(gptQuery);
+  const response = await result.response;
+  const text = response.text();
+  console.log(text)
+          const GptMovies = text.split(",");
                 
           //
          const promiceArray =  GptMovies.map((movie)=>searchMovieTMBD(movie))
