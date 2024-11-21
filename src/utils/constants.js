@@ -16,4 +16,4 @@ export const API_OPTIONS = {
     { identifier: "spanish", name: "Spanish" },
   ];
 
-  export const OPENAI_KEY = import.meta.env.VITE_OPENAI_KEY
+  export const OPENAI_KEY = "AIzaSyDep0cYzLrOzfuuOgU27nje06wkvK_CFxs"
