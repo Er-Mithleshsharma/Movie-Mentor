@@ -4,7 +4,7 @@ import GptSearchBar from './GptSearchBar'
 import GptmovieSuggestion from './GptMovieSuggestion'
 const GptSearch = () => {
   return (
-    <>
+    <div className='h-screen'>
     <div className='fixed -z-10 '>
       <img className='h-screen md:h-full object-cover' src={BG_URL} alt="" />
     </div>
@@ -13,7 +13,7 @@ const GptSearch = () => {
     <GptSearchBar/>
     <GptmovieSuggestion/>
     </div>
-    </>
+    </div>
   )
 }
 
